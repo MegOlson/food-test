@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { Observable } from 'rxjs/Observable';
 import { ZomatoApiCallsService } from '../zomato-api-calls.service';
 
 @Component({
@@ -7,15 +8,14 @@ import { ZomatoApiCallsService } from '../zomato-api-calls.service';
   styleUrls: ['./search.component.css'],
   providers: [ZomatoApiCallsService]
 })
-export class SearchComponent implements OnInit {
-
+export class SearchComponent{
+  restaurants: any[];
   constructor(private zomatoApiCallsService: ZomatoApiCallsService) { }
 
-  ngOnInit() {
+  getRestaurants(city: string, foodType: string) {
+    this.zomatoApiCallsService.getByCityAndType(city, foodType).subscribe(response => {
+      this.restaurants = response.json().results;
+    });
+    console.log(this.restaurants);
   }
-
-  cityId(city: string, foodType: string) {
-    console.log(this.zomatoApiCallsService.getRestaurants(city, foodType));
-  }
-
 }

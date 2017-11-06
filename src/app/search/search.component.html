@@ -3,5 +3,9 @@
   <input type="text" #newCity>
   <label for="">Food Type</label>
   <input type="text" #newFood>
-  <button type="button" (click)="cityId(newCity.value, newFood.value)" name="button">Search</button>
+  <button type="button" (click)="getRestaurants(newCity.value, newFood.value)" name="button">Search</button>
 </form>
+
+<div *ngIf="restaurants">
+  <app-restaurant-list [childRestaurants]="restaurants"></app-restaurant-list>
+</div>

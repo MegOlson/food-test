@@ -9,7 +9,7 @@ export class ZomatoApiCallsService {
   constructor(private http: Http) { }
 
 
-  getRestaurants(city: string, foodType) {
+  getByCityAndType(city: string, foodType) {
 
     return this.http.get('https://maps.googleapis.com/maps/api/place/textsearch/json?query=' + foodType + '+in+' + city + '&key=AIzaSyDRtGKrhqm1SV38qt4i5tTmgKz7ZIgUCMM')
   }
