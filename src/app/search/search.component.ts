@@ -14,8 +14,8 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  cityId(city: string) {
-    console.log(this.zomatoApiCallsService.getCityId(city));
+  cityId(city: string, foodType: string) {
+    console.log(this.zomatoApiCallsService.getRestaurants(city, foodType));
   }
 
 }
