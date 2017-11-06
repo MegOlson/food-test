@@ -8,5 +8,9 @@ import { Component, Input } from '@angular/core';
 })
 export class RestaurantListComponent{
   @Input() childRestaurants;
+
+  lat: number = 51.678418;
+  lng: number = 7.809007;
+
   constructor() { }
 }

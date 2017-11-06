@@ -16,6 +16,5 @@ export class SearchComponent{
     this.zomatoApiCallsService.getByCityAndType(city, foodType).subscribe(response => {
       this.restaurants = response.json().results;
     });
-    console.log(this.restaurants);
   }
 }
